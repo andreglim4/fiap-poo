@@ -1,23 +1,18 @@
 package br.com.fiapride.model;
 
-// A Classe Projetor segue o modelo definido no seu diagrama UML
 public class Projetor {
     private String material;
     private double pesoKg;
     private String tamanho;
-    private boolean ligado; // Atributo auxiliar para controle de estado
-
-    // Construtor para inicializar o objeto Projetor
-    public Projetor(String material, double pesoKg, String tamanho) {
-        this.material = material;
-        this.pesoKg = pesoKg;
-        this.tamanho = tamanho;
-        this.ligado = false; // O projetor inicia desligado por padrão
-    }
+    private boolean ligado; // Adicionado: Atributo para controlar o estado
 
     // --- Operações de Lógica do Objeto ---
 
-    public void ligarProjetor() {
+    public Projetor(String string, double d, String string2) {
+		
+	}
+
+	public void ligarProjetor() {
         if (this.ligado) {
             System.out.println("Aviso: O projetor já está ligado.");
         } else {
@@ -35,7 +30,6 @@ public class Projetor {
         }
     }
 
-    // Implementação da operation12() como uma funcionalidade real
     public void ajustarFoco() {
         if (this.ligado) {
             System.out.println("Ajustando o foco da lente para nitidez máxima.");
@@ -50,7 +44,7 @@ public class Projetor {
         return this.material;
     }
 
-    private void setMaterial(String material) {
+    public void setMaterial(String material) {
         this.material = material;
     }
 
@@ -58,10 +52,9 @@ public class Projetor {
         return this.pesoKg;
     }
 
-    // Set privado com regra de negócio para evitar pesos negativos
-    private void setPesoKg(double peso) {
-        if (peso > 0) {
-            this.pesoKg = peso;
+    public void setPesoKg(double pesoKg) {
+        if (pesoKg > 0) { // Corrigido: Nome da variável de 'peso' para 'pesoKg'
+            this.pesoKg = pesoKg;
         } else {
             System.out.println("Erro: Peso do projetor deve ser maior que zero.");
         }
@@ -71,7 +64,11 @@ public class Projetor {
         return this.tamanho;
     }
 
-    private void setTamanho(String tamanho) {
+    public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
+    }
+
+    public boolean isLigado() { // Padrão Java para getters de booleano é "is"
+        return ligado;
     }
 }

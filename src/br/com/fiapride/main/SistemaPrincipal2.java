@@ -1,6 +1,7 @@
 package br.com.fiapride.main;
 
 import br.com.fiapride.model.Passageiro;
+import br.com.fiapride.model.Veiculo;
 
 public class SistemaPrincipal2 {
 
@@ -30,7 +31,10 @@ public class SistemaPrincipal2 {
         System.out.println("\nPagando viagem do passageiro 2 (Carlos)...");
         passageiro2.pagarViagem(20.0); // Carlos tem 12.5. O sistema DEVE bloquear!
         
-        // Tente hackear o sistema descomentando a linha abaixo:
-        // passageiro1.saldo = 999999.0; // O Java vai exibir erro vermelho! A proteção funcionou!
+        Veiculo meuCarro = new Veiculo("ABC-1234", "Toyota Corolla");
+        
+        System.out.println("\n--- Dados do Veículo ---");
+        System.out.println("Veículo: " + meuCarro.getModelo());
+        System.out.println("Placa: " + meuCarro.getPlaca());
     }
 }
